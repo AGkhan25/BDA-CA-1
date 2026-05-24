@@ -77,6 +77,37 @@ protagonist_actor_name,
 protagonist_actor_surname FROM series2
 );
 
+-- ●	Write three additional queries based on your understanding,
+-- using WHERE, GROUP BY, and HAVING clauses.
+-- Group By
+SELECT series_ID, COUNT(*) AS ID_Count
+FROM series2
+GROUP BY series_ID;
+
+SELECT genre, COUNT(*) AS genre_count
+FROM movies3
+GROUP BY genre;
+
+-- WHERE
+SELECT movie_ID, title, genre, movies_year
+FROM movies3
+WHERE movies_year >= 2019;
+
+SELECT Username, series_ID, genre
+FROM useractivityseries
+WHERE genre = 'Animation';
+
+-- HAVING
+SELECT duration, COUNT(*) AS max_duration
+FROM movies3
+GROUP BY duration
+HAVING COUNT(*) > 10;
+
+SELECT genre, COUNT(*) AS total_series
+FROM series2
+GROUP BY genre
+HAVING Count(*) >20;
+
 
 
 
