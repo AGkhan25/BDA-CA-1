@@ -55,6 +55,30 @@ SET m.movies_year= mi.movies_year;
 -- to remove error in update column of 1175 take help form chat gpt 
 SET SQL_SAFE_UPDATES = 0;
 
+-- update series2 table bring year from series_year table
+ALTER TABLE series2 ADD column Series_year Year;
+UPDATE series2 AS s
+JOIN series_year As si
+ON s.series_ID= si.series_ID
+SET s.series_year= si.series_year;
+-- RUN Table serie2 
+SELECT*FROM series2;
+
+-- ●	Choose a well-known actor who has played leading roles in multiple movies,
+-- determine how many movies they appeared in,
+ -- and retrieve a list of actors who were protagonists in movies but not in series.
+SELECT DISTINCT 
+protagonist_actor_name,
+protagonist_actor_surname
+FROM movies3 
+WHERE (protagonist_actor_name, protagonist_actor_surname) NOT IN(
+SELECT 
+protagonist_actor_name, 
+protagonist_actor_surname FROM series2
+);
+
+
+
 
 
 
