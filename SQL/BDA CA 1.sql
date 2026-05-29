@@ -83,7 +83,7 @@ protagonist_actor_surname FROM series2
 
 -- ●	Write three additional queries based on your understanding,
 -- using WHERE, GROUP BY, and HAVING clauses.
--- Group By
+-- Group By- is use to combine the similar data and count the data by series ID and Genre
 SELECT series_ID, COUNT(*) AS ID_Count
 FROM series2
 GROUP BY series_ID;
@@ -93,7 +93,7 @@ FROM movies3
 GROUP BY genre;
 
 -- WHERE # where is use to filter the data . in this query we are filtering movie data with 
--- movies that published in 2019 and later.
+-- movies that published in 2019 and later. and filter by animation
 SELECT movie_ID, title, genre, movies_year
 FROM movies3
 WHERE movies_year >= 2019;
@@ -102,7 +102,7 @@ SELECT Username, series_ID, genre
 FROM useractivityseries
 WHERE genre = 'Animation';
 
--- HAVING
+-- HAVING- helps to fiter after group, where cannot help here
 SELECT duration, COUNT(*) AS max_duration
 FROM movies3
 GROUP BY duration
