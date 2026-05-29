@@ -1,8 +1,10 @@
+## Table are already imported trough CSV data set 
 CREATE DATABASE Ireflix;
 USE Ireflix;
 -- ●	Identify and implement relationships between tables using Primary Keys (PKs)
 --  and Foreign Keys (FKs) to maintain data integrity.
 -- Create relationship by Inner join using table movies3 and movies_year
+-- primary key is Movie_ID in Movie3 Table and also a FK in movies_year Table
 SELECT m.movie_ID,
 m.title,
 m.genre,
@@ -14,6 +16,8 @@ INNER JOIN movies3 AS m ON mi.movie_ID= m.movie_ID;
 
 -- Create relationship by using left join ,  
 -- using table movies3, movies_year and useractivitymovies
+-- In this query - primary key is Movie_ID and movies_yeat in Movie3 Table and 
+-- also a FK in movies_year Table and useractivitymovies Table
 SELECT m.movie_ID,
 m.title,
 m.genre,
@@ -88,7 +92,8 @@ SELECT genre, COUNT(*) AS genre_count
 FROM movies3
 GROUP BY genre;
 
--- WHERE
+-- WHERE # where is use to filter the data . in this query we are filtering movie data with 
+-- movies that published in 2019 and later.
 SELECT movie_ID, title, genre, movies_year
 FROM movies3
 WHERE movies_year >= 2019;
@@ -108,6 +113,7 @@ FROM series2
 GROUP BY genre
 HAVING Count(*) >20;
 
+  
 
 
 
